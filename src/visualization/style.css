@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Consolas', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+}
+
+.leaflet-bottom.leaflet-right {
+    display: none;
+}
+
+
+h1 {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    top: 20px;
+    z-index: 1;
+    text-shadow: 2px 2px 4px #fd7d96;
+    padding-inline: 1em;
+    text-wrap: balance;
+    font-size: clamp(1.5em, 5dvw, 2.3em);
+}
+
+#map {
+    z-index: 0;
+    height: 100dvh;
+}
+
+.credits {
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: .25em .5em;
+    font-size: .8em;
+    background-color: rgba(0, 0, 0, 5%);
+    border-radius: 3px;
+}

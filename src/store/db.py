@@ -3,9 +3,13 @@ import sqlite3
 
 import config
 
+CURRENT_PATH = os.path.dirname(os.path.abspath(__file__))
+DB_CONTENT_PATH = os.path.join(CURRENT_PATH, config.DB_CONTENT_NAME)
+DB_MODEL_PATH = os.path.join(CURRENT_PATH, config.DB_MODEL_NAME)
+
 
 def store_content(data):
-    connection = sqlite3.connect(os.path.join(config.PROJECT_ROOT_PATH, config.DB_CONTENT_NAME))
+    connection = sqlite3.connect(DB_CONTENT_PATH)
     cursor = connection.cursor()
 
     cursor.executescript('''
@@ -52,7 +56,7 @@ def store_content(data):
 
 
 def get_content():
-    connection = sqlite3.connect(os.path.join(config.PROJECT_ROOT_PATH, config.DB_CONTENT_NAME))
+    connection = sqlite3.connect(DB_CONTENT_PATH)
     cursor = connection.cursor()
 
     cursor.execute('''
@@ -70,7 +74,7 @@ def get_content():
 
 
 def store_model(model):
-    connection = sqlite3.connect(os.path.join(config.PROJECT_ROOT_PATH, config.DB_MODEL_NAME))
+    connection = sqlite3.connect(DB_MODEL_PATH)
     cursor = connection.cursor()
 
     cursor.executescript('''
@@ -111,7 +115,7 @@ def store_model(model):
 
 
 def get_model():
-    connection = sqlite3.connect(os.path.join(config.PROJECT_ROOT_PATH, config.DB_MODEL_NAME))
+    connection = sqlite3.connect(DB_MODEL_PATH)
     cursor = connection.cursor()
 
     cursor.execute('''
@@ -136,6 +140,3 @@ def get_model():
     connection.close()
 
     return data
-
-
-get_model()

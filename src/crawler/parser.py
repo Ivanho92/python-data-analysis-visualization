@@ -1,5 +1,8 @@
-def parse_data(soup, table_id):
-    table = soup.find(id=table_id)
+import config
+
+
+def parse_data(soup):
+    table = soup.find(id=config.TABLE_ID)
     rows = table.find_all('tr')
 
     data_dict = {

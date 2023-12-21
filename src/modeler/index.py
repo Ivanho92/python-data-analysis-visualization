@@ -8,6 +8,8 @@ from src.store.db import get_content, store_model
 def prepare_model():
     content = get_content()
 
+    if not config.MOCK_API_RESPONSE: print('Calling geocode API...')
+
     model = list()
     for row in content:
         country, avg_seizures = row
